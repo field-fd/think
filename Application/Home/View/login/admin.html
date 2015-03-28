@@ -1,0 +1,56 @@
+﻿<!DOCYYPE html>
+<html>
+    <head>
+        <title>
+        </title>
+         <meta charset="utf-8">
+    </head>
+    <style>
+	*{
+		padding:0px;
+		margin:0px;
+		}
+   body{background-color:rgb(226, 237, 245);
+      font-family:Microsoft YaHei;
+   }
+    a {text-decoration:none;color:black;}
+	a.add:link{
+		height:34px;
+		width:100px;
+		background:rgb(67, 117, 182);
+		margin:30px 0px 40px 200px;
+		display:block;
+		line-height:40px;
+		text-align:center;
+		}
+    a.add:hover{
+		background:blue;
+		}	
+	ol {
+	  margin-left:50px;
+	
+	}	
+	ol a{
+	color:blue;
+	}
+	</style>
+<script type="text/javascript">
+         function myClick() {
+             if (confirm("你确定要删除吗？")) {
+                 return true;
+             }
+             else {
+                 return false;
+             }
+         }
+
+     </script>
+<body>
+     <a  class="add" href="__URL__/addarticle">添加文章</a>
+	 <ol>
+	 <volist name="list" id="vo"><li>
+       {$vo.title}   <a  href="__URL__/delete/id/{$vo.id}" onclick=myClick()>删除</a></li><br /> 
+      </volist>
+</ol>
+</body>
+</html>
