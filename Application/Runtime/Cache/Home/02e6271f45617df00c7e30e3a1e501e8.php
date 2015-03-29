@@ -1,7 +1,7 @@
 <?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html>
 <head>
 <meta charset="utf-8">
-<title>方东博客登陆</title>
+<title>添加文章</title>
 <meta name="description" content="slick Login">
 <meta name="author" content="Webdesigntuts+">
 <link rel="stylesheet" type="text/css" href="/think/Public/css/login.css" />

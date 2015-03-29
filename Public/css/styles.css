@@ -6,7 +6,7 @@ img { border: 0; vertical-align: middle }
 p { display: block; }
 ul { list-style: none; }
 a { color: #865400; text-decoration: none; }
-a:hover { text-decoration:underline }
+a:hover { text-decoration:none }
 .blank { height: 5px; overflow: hidden; width: 100%; margin: auto; clear: both }
 article{ width:960px;margin:auto;border-left:#b29c77 10px solid; border-right:#b29c77 10px solid; box-shadow: 0px -4px 6px 4px #726758; background:#E3D6C3; overflow:hidden; }
 /* header */
@@ -51,4 +51,4 @@ h3.title{ font-size:16px; text-align:center;}
 .Copyright ul a {  padding: 0 10px; }
 .article-list a{margin:30px;}
 .time{text-indent:40em;color:#706666}
-.article{padding:20px;text-indent:2em}
+.article{padding:20px;text-indent:2em;font-size:15px;}

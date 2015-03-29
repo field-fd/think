@@ -49,7 +49,7 @@
      <a  class="add" href="/think/index.php/Home/Login/addarticle">添加文章</a>
 	 <ol>
 	 <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
-       <?php echo ($vo["title"]); ?>   <a  href="/think/index.php/Home/Login/delete/id/<?php echo ($vo["id"]); ?>" onclick=myClick()>删除</a></li><br /><?php endforeach; endif; else: echo "" ;endif; ?>
+       <?php echo ($vo["title"]); ?>   <a   href="/think/index.php/Home/Login/delete/id/<?php echo ($vo["id"]); ?>" onclick=myClick()>删除</a></li><br /><?php endforeach; endif; else: echo "" ;endif; ?>
 </ol>
 </body>
 </html>

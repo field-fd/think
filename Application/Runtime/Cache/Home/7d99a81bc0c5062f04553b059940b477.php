@@ -40,7 +40,7 @@
     
   </div>
   <div class="rightbox box">
-    <h2>博文</h2>
+    <h2><a href="<?php echo U('index/index');?>">返回到全部博文</a></h2>
     <h3 class="title"><?php echo ($article["title"]); ?></h3>
 	<p class="time">发表时间：<?php echo (date("Y-m-d i:s",$article["time"])); ?></p>
     <div class="article" ><?php echo ($article["content"]); ?></div>

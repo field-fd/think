@@ -1,7 +1,7 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class LoginController extends Controller{
+class LoginController extends CommonController{
 	public function login(){
 		 $this->display();
 	}
@@ -16,6 +16,9 @@ class LoginController extends Controller{
 	if (!$user||$user['password']!=$password){
 		$this->error('账号或者密码错误');
 	}
+	session('uid',$user['id']);
+	session('username',$user['username']);
+	session('password',$user['password']);
 	 $User = M('article');
      $list = $User->select();
      $this->assign('list',$list);
