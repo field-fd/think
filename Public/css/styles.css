@@ -52,3 +52,53 @@ h3.title{ font-size:16px; text-align:center;}
 .article-list a{margin:30px;}
 .time{text-indent:40em;color:#706666}
 .article{padding:20px;text-indent:2em;font-size:15px;}
+.snPages {
+position: relative;
+top:-4px;
+text-align: center;
+font-size:14px;
+}
+.snPages span.prev {
+width: 68px;
+height: 24px;
+line-height: 24px;
+line-height: 28px\9;
+_line-height: 24px;
+margin: 0;
+text-align: center;
+border: 1px solid #d7d7d7;
+color: #b1b1b1;
+background: #fff;
+}
+.snPages a, .snPages a:visited {
+height: 24px;
+line-height: 24px;
+padding: 0 8px;
+text-align: center;
+border: 1px solid #d7d7d7;
+background: #fff;
+margin-left: 5px;
+margin-right: 5px;
+}
+span.next {
+width: 68px;
+height: 24px;
+line-height: 24px;
+line-height: 28px\9;
+_line-height: 24px;
+margin-left: 4px;
+text-align: center;
+border: 1px solid #d7d7d7;
+color: #b1b1b1;
+background: #fff;
+}
+/*2014.12.22 新加翻页效果的CSS 结束结束*/
+.current{
+height: 24px;
+line-height: 24px;
+padding: 0 8px;
+text-align: center;
+border: 1px solid #d7d7d7;
+background: #fff;
+font-weight:800;
+}

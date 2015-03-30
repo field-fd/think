@@ -45,7 +45,7 @@
    <ul class="article-list">
      <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li><a href="/think/index.php/Home/Index/article/id/<?php echo ($vo["id"]); ?>">
        <?php echo ($vo["title"]); ?></a>&nbsp<?php echo (date("Y-m-d i:s",$vo["time"])); ?></li><br /><?php endforeach; endif; else: echo "" ;endif; ?>
-    <div  style="text-align:center;"><?php echo ($page); ?></div>
+    <div  class="snPages" ><?php echo ($page); ?></div>
    </ul>
   </div>
   <div class="blank"></div>

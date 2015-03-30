@@ -9,8 +9,8 @@
 </head>
 <body>
 <form id="slick-login" method=post action=/think/index.php/Home/Login/handle>
-<label for="username">username</label><input type="text" name="username" class="placeholder" placeholder="帐号">
-<label for="password">password</label><input type="password" name="password" class="placeholder" placeholder="密码">
+<label for="username">username</label><input type="text" name="username" id="username" class="placeholder" placeholder="帐号">
+<label for="password">password</label><input type="password" name="password" id="password" class="placeholder" placeholder="密码">
 <input type="submit" value="登陆">
 </form>
 </body>

@@ -5,7 +5,7 @@ class IndexController extends Controller {
     public function index(){  
 	 import('ORG.Util.Page');
 	 $count = M('article')->count();
-	 $page = new \Think\Page($count,5);	
+	 $page = new \Think\Page($count,8);	
 	 $limit = $page->firstRow.','.$page->listRows;
 	 $list = M('article')->order('time DESC')->limit($limit)->select();
 	 $this->list = $list;

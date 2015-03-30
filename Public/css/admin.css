@@ -1,0 +1,328 @@
+﻿@charset "utf-8";
+
+* {
+	margin:0px;
+	padding:0px;
+}
+
+#picframe {
+	background: #FFFFF;
+	padding: 10px;
+	margin:0 auto;
+	width: 900px;
+	height:120px;
+	display: none;
+}
+.head {
+	width:946px;
+	height:28px;
+	margin:0 auto;
+	overflow: hidden;
+border:1px solid #ccc
+}
+.head ul {
+	height:28px;
+	overflow: hidden;
+	font-size: 12px;
+	font-family: "ו";
+	text-align:center;
+	float:right;
+}
+.head li {
+	float:right;
+	list-style-type:none;
+	margin-left:15px;
+	line-height:30px;
+	padding: 0px 8px;
+}
+.head ul li a:link, .head ul li a:hover, .head ul li a:visited {
+	color: #2e3092;
+	text-decoration: none;
+}
+.mainnn {
+	width:950px;
+	margin:0 auto;
+     overflow:hidden;       
+
+}
+.main {
+	width:950px;
+	margin:0 auto;
+       overflow: hidden;
+}
+.sideBar {
+	width:210px;
+	float: left;
+     overflow: hidden;
+	clear:both;
+}
+.module {
+	width:208px;
+	clear: both;
+	margin: 0;
+	text-align: left;
+	overflow:inherit ;
+	width: auto;
+	margin-bottom: 7px;
+	border:1px solid #ccc;
+        background:#FFF;
+}
+module-head {
+	height: 24px;
+	width:200px;
+}
+.title {
+	float: left;
+	padding-left: 10px;
+	padding-right: 52px;
+	padding-top: 8px;
+	font-weight: 700;
+	color:#146187;
+	font-family: "Microsoft YaHei","Helvetica Neue",SimSun;
+	font-size: 12px;
+}
+.more {
+float: right;
+padding-left: 10px;
+padding-right: 7px;
+padding-top: 5px;
+font-weight: 700;
+color: #146187;
+font-family: "", sans-serif;
+font-size: 13px;
+}
+.module-body {
+	width:188px;
+	padding:10px;
+	font-size: 12px;
+	font-family: "Microsoft YaHei","Helvetica Neue",SimSun;
+	background:#FFF;
+}
+
+
+.module-body ul{
+overflow: hidden;
+}
+.module-body ul li {
+	list-style-type:none;
+	line-height: 25px;
+	font-size: 12px;
+}
+.module-body a:link, .module-body a:hover, .module-body a:visited {
+color: #1b719b;
+text-decoration:none;
+}  /*2014.12.22   fd 新增加 */
+.module-head a:link, .module-head a:hover, .module-head a:visited {
+color: #1b719b;
+text-decoration:none;
+}
+.time {
+	color:#81a7b9;
+	font-size:11px;
+	font-family:Arial;
+	position: relative;
+	float:right;
+	display:inline;
+}
+
+
+<!--start-->
+
+
+.content {
+	overflow: inherit;
+        background: white;
+}
+.content-head{
+	height: 24px;
+	width:948px;
+
+	}
+.content-body {
+	width:948px;
+	background:#FFF;
+        overflow: hidden;
+     height:460px;
+} /*2014.12.28 fd修改 增加了height 使内容页固定高度 shanchule padding-top:20px;*/
+
+.content-body a:link, .content-body a:hover, .content-body a:visited {
+color: #1b719b;
+text-decoration:none;
+}
+.topic{
+margin:15px;
+width:666px;
+overflow:hidden;
+font-family: "Microsoft YaHei","Helvetica Neue",SimSun;
+}
+
+.topic-time{
+float:right;
+font-color:#807F7F;
+font-size:14px;
+line-height:25px;
+}
+.reply{
+width: 726px;
+overflow: hidden;
+margin-left: 85px;
+margin-bottom: 10px;
+margin-top: 10px;
+font-family: "Microsoft YaHei","Helvetica Neue",SimSun;}
+.reply-time{
+color:#706666;
+float:right;
+font-size:13px;
+line-height:22px;
+font-family: "Microsoft YaHei","Helvetica Neue",SimSun;
+}
+.min-left{
+font-family: "Microsoft YaHei","Helvetica Neue",SimSun;
+font-size:13px;
+letter-spacing: 1px;
+background: white;
+}
+
+#pichuifu {
+font-family: "Microsoft YaHei","Helvetica Neue",SimSun;
+font-size:13px;
+	background:white;
+	padding: 10px;
+	margin:0 auto;
+	width: 500px;
+	height:250px;
+	display: none;
+}
+
+#pichuifu1 {
+font-family: "Microsoft YaHei","Helvetica Neue",SimSun;
+font-size:13px;
+	background:white;
+	padding: 10px;
+	margin:0 auto;
+	width: 500px;
+	height:250px;
+	display: none;
+}
+
+.foot{
+	height:20px;
+	margin-bottom:80px;
+	margin-top:80px;
+	font-size:14px;
+	font-family:Arial;
+	color:#796767;
+	}
+
+
+
+
+
+/*2014.12.22 新加翻页效果的CSS 开始开始*/
+
+.snPages {
+position: relative;
+top:76px;
+text-align: center;
+font-size:14px;
+}
+
+
+.snPages span.prev {
+width: 68px;
+height: 24px;
+line-height: 24px;
+line-height: 28px\9;
+_line-height: 24px;
+margin: 0;
+text-align: center;
+border: 1px solid #d7d7d7;
+color: #b1b1b1;
+background: #fff;
+}
+.snPages a, .snPages a:visited {
+height: 24px;
+line-height: 24px;
+padding: 0 8px;
+text-align: center;
+border: 1px solid #d7d7d7;
+background: #fff;
+margin-left: 5px;
+margin-right: 5px;
+}
+span.next {
+width: 68px;
+height: 24px;
+line-height: 24px;
+line-height: 28px\9;
+_line-height: 24px;
+margin-left: 4px;
+text-align: center;
+border: 1px solid #d7d7d7;
+color: #b1b1b1;
+background: #fff;
+}
+/*2014.12.22 新加翻页效果的CSS 结束结束*/
+.current{
+height: 24px;
+line-height: 24px;
+padding: 0 8px;
+text-align: center;
+border: 1px solid #d7d7d7;
+background: #fff;
+font-weight:800;
+}
+.logonav {
+	width:913px;
+	height:250px;
+	margin:0 auto;
+}
+.webname{
+	  font-family: "Microsoft YaHei";
+       font-size: 36px;
+       font-weight: 500;
+       color:#0C4499;
+       left: 42px;
+       top: 68px;
+position:relative;
+}
+.weblink{
+	font-size: 14px;
+       left: 45px;
+       top: 68px;
+position:relative;
+}
+.weblink a:link, weblink a:hover, weblink  a:visited {
+	color: #1b719b;
+	text-decoration:none;
+}
+.nav {
+	height: 26px;
+	position: relative;
+	top: 100px;
+        left: 30px;
+font-weight: 600;
+
+}
+.nav-ul li{float:right;
+	padding: 0px 13px;
+       border-right:1px dotted #ccc;
+	color: #32A1CC;
+	list-style-type:none;}
+.nav ul {
+        
+	font-size: 16px;
+	font-family: "Microsoft YaHei";
+
+}
+.nav ul li {
+	float: left;
+	padding: 0px 13px;
+       border-right:1px dotted #ccc;
+	color: #32A1CC;
+	list-style-type:none;
+}
+.nav ul li a:link, .nav ul li a:hover, .nav ul li a:visited {
+	color: #0C4499;
+	text-decoration:none;
+}

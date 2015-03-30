@@ -1,55 +1,98 @@
-<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCYYPE html>
-<html>
-    <head>
-        <title>
-        </title>
-         <meta charset="utf-8">
-    </head>
-    <style>
-	*{
-		padding:0px;
-		margin:0px;
-		}
-   body{background-color:rgb(226, 237, 245);
-      font-family:Microsoft YaHei;
-   }
-    a {text-decoration:none;color:black;}
-	a.add:link{
-		height:34px;
-		width:100px;
-		background:rgb(67, 117, 182);
-		margin:30px 0px 40px 200px;
-		display:block;
-		line-height:40px;
-		text-align:center;
-		}
-    a.add:hover{
-		background:blue;
-		}	
-	ol {
-	  margin-left:50px;
-	
-	}	
-	ol a{
-	color:blue;
-	}
-	</style>
-<script type="text/javascript">
-         function myClick() {
+<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>后台管理</title>
+<link rel="stylesheet" type="text/css" href="/think/Public/css/admin.css" />
+<script src="scripts/jquery-1.6.2.min.js"></script>
+<script>
+			$(document).ready(function(){
+				$("#clickMe").click(function() {
+					$("img").fadeIn(1000);
+					$("#picframe").slideToggle("slow");
+				});
+			});
+         function myClick(url) {
              if (confirm("你确定要删除吗？")) {
-                 return true;
+			  location.href=url;
+             }
+             else {
+                 return false;
+             }
+         }
+		 function logout(url) {
+             if (confirm("你确定要退出吗？")) {
+			  location.href=url;
              }
              else {
                  return false;
              }
          }
 
-     </script>
+		</script><!--JS换肤特效  FD(change)-->
+		<style>
+body {
+	background-image:url(/think/Public/images/gb5.jpg);
+}
+.head {
+	background-image:url(/think/Public/images/topbar.png);
+}
+.module-body img {
+	height: 120px;
+	margin-left: 4px;
+}
+<!--对教师照片定义大小 2014-12-08改-->
+</style>
+</head>
 <body>
-     <a  class="add" href="/think/index.php/Home/Login/addarticle">添加文章</a>
-	 <ol>
-	 <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><li>
-       <?php echo ($vo["title"]); ?>   <a   href="/think/index.php/Home/Login/delete/id/<?php echo ($vo["id"]); ?>" onclick=myClick()>删除</a></li><br /><?php endforeach; endif; else: echo "" ;endif; ?>
-</ol>
+<div class="head">
+  <ul>
+    <li><a href="#" id="clickMe">换肤</a></li>
+    <li><a  class="add" href="javascript:logout('/think/index.php/Home/Login/logout')">退出</a></li>
+    <li><a href="<?php echo U('index/index');?>"  target="_blank">主页</a></li>
+  </ul>
+</div>
+<!--头部end-->
+<div id="picframe"> <a target="_blank" href="#"> <img src="/think/Public/images/skin1.png" style="width:130px;height:110px;margin-right:20px;"></a> <a target="_blank" href="#"> <img src="images/skin2.png" style="width:130px;height:110px;"></a> </div>
+<!--logo&nav star-->
+<div class="logonav" style="margin-bottom: 8px;">
+  <div class="webname">云无心以出岫</div>
+  <div class="nav">
+    <ul>
+      <li><a href="<?php echo U('index/index');?>"  target="_blank">个人主页</a></li>  
+       <li><a href="<?php echo U('Login/admin');?>">全部博文</a></li>
+	   <li><a  href="/think/index.php/Home/Login/addarticle">添加文章</a></li>
+      </ul>
+  </div>
+</div>
+
+<!--logo&nav end-->
+<div class="mainnn">
+<div class="main"> 
+  <div class="content" style="float:right;border:1px solid #ccc;background: white;"><!--xinjia beijingyanse-->
+    <div class="content-head" style="height: 25px;background-image:url(/think/Public/images/modelhead.png);"><span class="title">全部博文</span></div>
+    <div class="content-body">
+     
+      <div class="content11" style="background: white;padding-top:20px;">
+        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="reply">
+		<span class="min-left"><?php echo ($vo["title"]); ?> </span>
+		<span class="reply-time">
+		<span><?php echo (date("Y-m-d i:s",$vo["time"])); ?></span>&nbsp&nbsp&nbsp&nbsp<a   href="javascript:myClick('/think/index.php/Home/Login/delete/id/<?php echo ($vo["id"]); ?>')">&nbsp&nbsp删除</a> 
+		</span>
+		</div><?php endforeach; endif; else: echo "" ;endif; ?>
+		<div class="snPages"><?php echo ($page); ?></div>
+      </div>
+
+    </div>
+    <!--右边内容end--> 
+  </div>
+</div>
+<!--主体end--> 
+<!--结尾-->
+<div class="foot"”>
+  <center>
+    信息与电气工程学院方东 版权所有
+  </center>
+</div>
 </body>
 </html>
