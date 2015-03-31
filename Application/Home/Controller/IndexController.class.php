@@ -17,10 +17,33 @@ class IndexController extends Controller {
 		$id=$_GET['id'];
 		$article=M('article')->where(array('id'=>$id))->find();
 		$this->assign('article',$article);
-		$this->display();
+		$this->display();	
+	}
+    public function note(){
+	  import('ORG.Util.Page');
+	  $count = M('note')->count();
+	  $page = new \Think\Page($count,6);	
+	  $limit = $page->firstRow.','.$page->listRows;
+	  $list = M('note')->order('time DESC')->limit($limit)->select();
+	  $this->list = $list;
+	  $this->page = $page->show();
+	  $this->display();
 		
 	}
-
-
+      public function addnote(){   
+	   $data=array(
+	   'name' => I('name'),
+	   'content' => I('myEditor','',htmlspecialchars_decode),
+	   'time' => time()   
+	   );
+	   $flag=M('note')->data($data)->add();
+	  if ($flag)
+	   {
+		    echo "<script>alert('留言成功');</script>";
+	         $this->redirect('note');
+	   }else{
+		   $this->error('留言失败');
+	   }
+   }
    
  }

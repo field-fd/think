@@ -17,6 +17,12 @@
       <h1>浣溪沙 梅花夢事</h1>
       <p class="byline">——梅如是</p>
     </div>
+	  <div class="nav">
+      <ul>
+        <li><a href="<?php echo U('index/index');?>">全部博文</a></li>
+        <li><a href="<?php echo U('index/note');?>">留言板</a></li>
+      </ul>
+	</div>
     <object id="swftitlebar" data="/think/Public/images/79514.swf" width="100%" height="220" type="application/x-shockwave-flash">
       <param name="allowScriptAccess" value="always">
       <param name="allownetworking" value="all">
@@ -26,7 +32,7 @@
       <param name="scale" value="noScale">
       <param name="salign" value="1">
     </object>
-    <p class="sign">收我南窗梦一帘,人间故事密封缄。迎将冷淡到江南。 身逐空花归净界,愿随清月落寒潭。红尘隔断两无堪。</p>
+    <p class="sign">收我南窗梦一帘,人间故事密封缄。</p>
   </header>
   <div class="leftbox">
     <div class="vcard box">

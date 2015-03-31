@@ -41,6 +41,9 @@ body {
 	height: 120px;
 	margin-left: 4px;
 }
+.content-body{
+ height:480px;
+}
 <!--对教师照片定义大小 2014-12-08改-->
 </style>
 </head>
@@ -55,13 +58,14 @@ body {
 <!--头部end-->
 <div id="picframe"> <a target="_blank" href="#"> <img src="/think/Public/images/skin1.png" style="width:130px;height:110px;margin-right:20px;"></a> <a target="_blank" href="#"> <img src="images/skin2.png" style="width:130px;height:110px;"></a> </div>
 <!--logo&nav star-->
-<div class="logonav" style="margin-bottom: 8px;">
+<div class="logonav" >
   <div class="webname">云无心以出岫</div>
   <div class="nav">
     <ul>
       <li><a href="<?php echo U('index/index');?>"  target="_blank">个人主页</a></li>  
        <li><a href="<?php echo U('Login/admin');?>">全部博文</a></li>
 	   <li><a  href="/think/index.php/Home/Login/addarticle">添加文章</a></li>
+	   <li><a  href="/think/index.php/Home/Login/note">查看留言</a></li>
       </ul>
   </div>
 </div>
@@ -70,7 +74,7 @@ body {
 <div class="mainnn">
 <div class="main"> 
   <div class="content" style="float:right;border:1px solid #ccc;background: white;"><!--xinjia beijingyanse-->
-    <div class="content-head" style="height: 25px;background-image:url(/think/Public/images/modelhead.png);"><span class="title">全部博文</span></div>
+    <div class="content-head" style="height: 25px;background-image:url(/think/Public/images/modelhead.png);"><span class="addblog">全部博文</span></div>
     <div class="content-body">
      
       <div class="content11" style="background: white;padding-top:20px;">

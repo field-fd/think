@@ -18,7 +18,7 @@ header { width: 100%; background:url(../images/sinablogb.jpg) no-repeat center #
 }
 .toptitle h1{ color:#9E6B25; font: 24px "Î¢ÈíÑÅºÚ", "Microsoft YaHei", Arial, Helvetica, sans-serif;}
 .byline{ color:#f2e4d1; text-align:right; margin-top:20px; font-size:14px;}
-.sign{ text-align:right; margin:30px 80px 0; color:#7C7B77}
+.sign{ text-align:right; margin:21px 80px 0; color:#7C7B77}
 /* leftbox */
 .leftbox{ padding-left:10px;width:210px; float:left}
 .leftbox h2,.rightbox h2{ background:url(../images/tp.jpg) repeat-x ; color:#8B745C; font-size:12px; font-family: "ËÎÌå",sans-serif; padding:5px; border:#F7F3EE 1px solid}
@@ -101,4 +101,64 @@ text-align: center;
 border: 1px solid #d7d7d7;
 background: #fff;
 font-weight:800;
+}
+.nav {
+	height: 26px;
+    position: relative;
+    top: 249px;
+    left: 284px;
+    font-weight: 600;
+
+}
+.nav-ul li{float:right;
+	padding: 0px 13px;
+    border-right:1px dotted #ccc;
+	list-style-type:none;}
+.nav ul {
+        
+	font-size: 16px;
+	font-family: "Microsoft YaHei";
+
+}
+.nav ul li {
+	float: left;
+	padding: 0px 13px;
+    border-right:1px dotted #ccc;
+	list-style-type:none;
+}
+.submit1{
+   width: 78px;
+height: 32px;
+border: none;
+background: #A5865A;
+color: #FFFFFF;
+text-align: center;
+margin-top: 20px;
+margin-left: 430px;
+margin-bottom: 20px;
+}
+.notebox{
+overflow:hidden;
+border-top:1px solid #ccc;
+margin-bottom:30px;
+padding-top:10px;
+}
+.noteuser{
+float:left;
+width:115px;
+font-size: 14px;
+}
+.notename{
+color: #26709A;font-size: 15px;font-family: Microsoft YaHei;padding-left:10px
+}
+.notetime{
+padding-left:10px;color:#ccc;#9B9B9B;font-family: Microsoft YaHei;font-size: 12px;
+}
+.notecontent{
+float:right;width:570px;padding-right:20px;
+}
+.title1{
+height: 24px;
+width: 200px;
+margin-bottom: 18px;
 }

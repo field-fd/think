@@ -71,7 +71,7 @@ module-head {
 	height: 24px;
 	width:200px;
 }
-.title {
+.addblog {
 	float: left;
 	padding-left: 10px;
 	padding-right: 52px;
@@ -80,6 +80,11 @@ module-head {
 	color:#146187;
 	font-family: "Microsoft YaHei","Helvetica Neue",SimSun;
 	font-size: 12px;
+}
+.title{
+height: 24px;
+width: 331px;
+margin-bottom: 18px;
 }
 .more {
 float: right;
@@ -142,7 +147,7 @@ text-decoration:none;
 	width:948px;
 	background:#FFF;
         overflow: hidden;
-     height:460px;
+    
 } /*2014.12.28 fd修改 增加了height 使内容页固定高度 shanchule padding-top:20px;*/
 
 .content-body a:link, .content-body a:hover, .content-body a:visited {
@@ -221,10 +226,10 @@ font-size:13px;
 /*2014.12.22 新加翻页效果的CSS 开始开始*/
 
 .snPages {
-position: relative;
 top:76px;
 text-align: center;
 font-size:14px;
+margin-top:50px;
 }
 
 
@@ -325,4 +330,17 @@ font-weight: 600;
 .nav ul li a:link, .nav ul li a:hover, .nav ul li a:visited {
 	color: #0C4499;
 	text-decoration:none;
+}
+center{font-family: Microsoft YaHei;
+  color:rgb(100, 100, 143);
+  }
+ .submit1{
+    width:100px;
+	height:34px;
+	border:none;
+	background:#317ef3;
+	color:#FFFFFF;
+	text-align:center;
+	margin-top: 20px;
+	margin-left:405px;
 }

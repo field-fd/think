@@ -44,10 +44,10 @@ class LoginController extends Controller{
 		
    public function add(){    
 	   if (session('username')=="")
-		$this->redirect('Login/login');
+    	$this->redirect('Login/login');
 	   $data=array(
 	   'title' => I('title'),
-	   'content' => I('content'),
+	   'content' => I('myEditor','',htmlspecialchars_decode),
 	   'time' => time()   
 	   );
 	   $flag=M('article')->data($data)->add();
@@ -57,7 +57,7 @@ class LoginController extends Controller{
 	         $this->redirect('Login/admin');
 	   }else{
 		   $this->error('发布失败');
-	   }	   
+	   }
    }
   
   public function delete(){
@@ -76,6 +76,31 @@ class LoginController extends Controller{
 	public function logout(){
 		session(null);
 		$this->redirect('Login/login');
+	}
+	
+	public function note(){
+	  import('ORG.Util.Page');
+	  $count = M('note')->count();
+	  $page = new \Think\Page($count,6);	
+	  $limit = $page->firstRow.','.$page->listRows;
+	  $list = M('note')->order('time DESC')->limit($limit)->select();
+	  $this->list = $list;
+	  $this->page = $page->show();
+	  $this->display();		
+	}
+
+	public function drop(){
+		if (session('username')=="")
+	   $this->redirect('Login/login');
+	   $id = $_GET['id']; 
+       $drop=M('note')->where(array('id'=>$id))->delete();
+       if ($drop)
+	   {
+		    echo "<script>alert('删除成功');</script>";
+		  	  $this->redirect('Login/note');
+	   }else{
+		   $this->error('删除失败');			
+	     }	
 	}
 }
 ?>
