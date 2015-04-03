@@ -1,14 +1,14 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>后台管理</title>
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin.css" />
-<script src="scripts/jquery-1.6.2.min.js"></script>
+<script src="__PUBLIC__/js/jquery-1.6.2.min.js"></script>
 <script>
          function myClick(url) {
              if (confirm("你确定要删除吗？")) {
-			  location.href=url;
+			 location.href=url;
              }
              else {
                  return false;
@@ -22,23 +22,25 @@
                  return false;
              }
          }
-
-		</script><!--JS换肤特效  FD(change)-->
+      
+		</script>
+		<script type="text/javascript">
+$(document).ready(function() {
+ $("div li:has(img)").click(function() {
+  $("#showphoto").fadeIn(300);
+   var photo_url = $(this).find("img").attr("src");
+   $("#photo").find("img").attr("src",photo_url);
+  $("#photo").click( function(){
+  $("#showphoto").fadeOut(300);
+ });
+ });
+});
+</script>
 		<style>
-body {
-	background-image:url(__PUBLIC__/images/gb5.jpg);
-}
-.head {
-	background-image:url(__PUBLIC__/images/topbar.png);
-}
-.module-body img {
-	height: 120px;
-	margin-left: 4px;
-}
-.content-body{
- height:480px;
-}
-<!--对教师照片定义大小 2014-12-08改-->
+body {background-image:url(__PUBLIC__/images/gb5.jpg);}
+.head {background-image:url(__PUBLIC__/images/topbar.png);}
+.module-body img {height: 120px;margin-left: 4px;}
+.content-body{ height:535px;}
 </style>
 </head>
 <body>
@@ -68,18 +70,25 @@ body {
 <div class="mainnn">
 <div class="main"> 
   <div class="content" style="float:right;border:1px solid #ccc;background: white;"><!--xinjia beijingyanse-->
-    <div class="content-head" style="height: 25px;background-image:url(__PUBLIC__/images/modelhead.png);"><span class="addblog">全部博文</span></div>
+    <div class="content-head" style="height: 25px;background-image:url(__PUBLIC__/images/modelhead.png);"><span class="addblog">上传照片</span></div>
     <div class="content-body">
-     
-      <div class="content11" style="background: white;padding-top:20px;">
-        <volist name="list" id="vo">
-        <div class="reply">
-		<span class="min-left">{$vo.title} </span>
-		<span class="reply-time">
-		<span>{$vo.time|date="Y-m-d i:s",###}</span>&nbsp&nbsp&nbsp&nbsp<a   href="javascript:myClick('__URL__/delete/id/{$vo.id}')">&nbsp&nbsp删除</a> 
-		</span>
+     <div class="content11" style="background: white;padding-top:20px;">
+      <form class="add-photo" action="{:U('Login/addphoto')}" method="post" enctype="multipart/form-data">
+      <input type="file" name="photo" />
+      <input type="submit" value="提交" >
+      </form>
+        <div class="photo">
+          <ul>
+		  <volist name="photo" id="p">
+		     <li><img src="__PUBLIC__/Uploads/{$p.name}"><a href="javascript:myClick('__URL__/deletephoto/id/{$p.id}')">删除</a><span class="photo-time" >{$p.time|date="Y-m-d i:s",###}</span></li>
+          </volist>
+		  </ul>
+		  <!--点击图片放大-->
+		  <div id="showphoto" class="showphoto" style="display:none;">
+            <div id="photo" style=""><img  style="height:600px;"/></div>
+        </div>
+		<!---end---->
 		</div>
-		</volist>
 		<div class="snPages">{$page}</div>
       </div>
 

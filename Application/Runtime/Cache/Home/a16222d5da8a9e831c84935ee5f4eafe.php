@@ -6,12 +6,6 @@
 <link rel="stylesheet" type="text/css" href="/think/Public/css/admin.css" />
 <script src="scripts/jquery-1.6.2.min.js"></script>
 <script>
-			$(document).ready(function(){
-				$("#clickMe").click(function() {
-					$("img").fadeIn(1000);
-					$("#picframe").slideToggle("slow");
-				});
-			});
          function myClick(url) {
              if (confirm("你确定要删除吗？")) {
 			  location.href=url;
@@ -50,8 +44,7 @@ color: #26709A;font-size: 15px;
 <body>
 <div class="head">
   <ul>
-    <li><a href="#" id="clickMe">换肤</a></li>
-    <li><a  class="add" href="javascript:logout('/think/index.php/Home/Login/logout')">退出</a></li>
+    <li><a  class="add" href="javascript:logout('/think/index.php/Home/Login/logout')">退出登陆</a></li>
     <li><a href="<?php echo U('index/index');?>"  target="_blank">主页</a></li>
   </ul>
 </div>
@@ -66,6 +59,7 @@ color: #26709A;font-size: 15px;
        <li><a href="<?php echo U('Login/admin');?>">全部博文</a></li>
 	   <li><a  href="/think/index.php/Home/Login/addarticle">添加文章</a></li>
 	   <li><a  href="/think/index.php/Home/Login/note">查看留言</a></li>
+	    <li><a  href="/think/index.php/Home/Login/photo">查看相册</a></li>
       </ul>
   </div>
 </div>
@@ -79,9 +73,9 @@ color: #26709A;font-size: 15px;
      
       <div class="content11" style="background: white;padding-top:20px;">
         <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="reply">
-		<span class="min-left"><span class="name"><script type="text/javascript">if("<?php echo ($vo["name"]); ?>"=="")document.write("匿名用户");else document.write("<?php echo ($vo["name"]); ?>");</script></span>:<?php echo ($vo["content"]); ?></span>
+		<span class="min-left"><span class="name"><?php echo ($vo["name"]); ?></span>:<?php echo ($vo["content"]); ?></span>
 		<span class="reply-time">
-		<span><?php echo (date("Y-m-d i:s",$vo["time"])); ?></span>&nbsp&nbsp&nbsp&nbsp<a   href="javascript:myClick('/think/index.php/Home/Login/drop/id/<?php echo ($vo["id"]); ?>')">&nbsp&nbsp删除</a> 
+		<span><?php echo (date("Y-m-d H:i",$vo["time"])); ?></span>&nbsp&nbsp&nbsp&nbsp<a   href="javascript:myClick('/think/index.php/Home/Login/drop/id/<?php echo ($vo["id"]); ?>')">&nbsp&nbsp删除</a> 
 		</span>
 		</div><?php endforeach; endif; else: echo "" ;endif; ?>
 		<div class="snPages"><?php echo ($page); ?></div>

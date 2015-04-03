@@ -49,7 +49,7 @@ h3.title{ font-size:16px; text-align:center;}
 /* Copyright */
 .Copyright { text-align: center; margin: 40px 0 0 }
 .Copyright ul a {  padding: 0 10px; }
-.article-list a{margin:30px;}
+ul.article-list {padding: 0 22px 0 20px;}
 .time{text-indent:40em;color:#706666}
 .article{padding:20px;text-indent:2em;font-size:15px;}
 .snPages {
@@ -62,8 +62,6 @@ font-size:14px;
 width: 68px;
 height: 24px;
 line-height: 24px;
-line-height: 28px\9;
-_line-height: 24px;
 margin: 0;
 text-align: center;
 border: 1px solid #d7d7d7;
@@ -162,3 +160,14 @@ height: 24px;
 width: 200px;
 margin-bottom: 18px;
 }
+.photobox ul li img{  height: 153px;width: 133px;margin: 16px 17px 0 22px;cursor:pointer;}
+.photobox{width:710px;height:415px;overflow:hidden;}
+.photobox ul li{list-style:none;float:left;display: inline-block;overflow: hidden;white-space: nowrap;}
+.photo-time{
+font-size: 13px;
+color: #574E4E;
+padding-left: 27px;
+}
+#showphoto{ position:absolute; width:426px; height:293px; z-index:200;}
+#info{ position:absolute; top:380px; left:10px; margin-left:28px; padding:5px; width:416px; height:45px; background:url(info_bg.png) center center no-repeat;}
+#photo{ position:fixed; top:60px; left:493px; border:3px solid #fff; cursor:pointer;}

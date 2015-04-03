@@ -9,6 +9,25 @@
     <script type="text/javascript" charset="utf-8" src="/think/Public/editor/umeditor.config.js"></script>
     <script type="text/javascript" charset="utf-8" src="/think/Public/editor/umeditor.min.js"></script>
     <script type="text/javascript" src="/think/Public/editor/lang/zh-cn/zh-cn.js"></script>
+	<script>
+         function myClick(url) {
+             if (confirm("你确定要删除吗？")) {
+			  location.href=url;
+             }
+             else {
+                 return false;
+             }
+         }
+		 function logout(url) {
+             if (confirm("你确定要退出吗？")) {
+			  location.href=url;
+             }
+             else {
+                 return false;
+             }
+         }
+
+		</script>
 <style>
 body {
 	background-image:url(/think/Public/images/gb5.jpg);
@@ -39,8 +58,7 @@ body {
 <body>
 <div class="head">
   <ul>
-    <li><a href="#" id="clickMe">换肤</a></li>
-    <li><a  class="add" href="javascript:logout('/think/index.php/Home/Login/logout')">退出</a></li>
+    <li><a  class="add" href="javascript:logout('/think/index.php/Home/Login/logout')">退出登陆</a></li>
     <li><a href="<?php echo U('index/index');?>"  target="_blank">主页</a></li>
   </ul>
 </div>
@@ -55,6 +73,7 @@ body {
        <li><a href="<?php echo U('Login/admin');?>">全部博文</a></li>
 	   <li><a  href="/think/index.php/Home/Login/addarticle">添加文章</a></li>
 	   <li><a  href="/think/index.php/Home/Login/note">查看留言</a></li>
+	   <li><a  href="/think/index.php/Home/Login/photo">查看相册</a></li>
       </ul>
   </div>
 </div>

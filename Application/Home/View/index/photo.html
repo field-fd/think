@@ -6,10 +6,23 @@
 <meta name="keywords" content="个人博客" />
 <meta name="description" content="这是方东个人博客网站" />
 <link href="__PUBLIC__/css/styles.css" rel="stylesheet">
+<script src="__PUBLIC__/js/jquery-1.6.2.min.js"></script>
 <!--[if lt IE 9]>
 <script src="__PUBLIC__/js/modernizr.js"></script>
 <![endif]-->
 </head>
+<script type="text/javascript">
+$(document).ready(function() {
+ $("div li:has(img)").click(function() {
+  $("#showphoto").fadeIn(300);
+   var photo_url = $(this).find("img").attr("src");
+   $("#photo").find("img").attr("src",photo_url);
+  $("#photo").click( function(){
+  $("#showphoto").fadeOut(300);
+ });
+ });
+});
+</script>
 <body>
 <article>
   <header>
@@ -47,10 +60,21 @@
     
   </div>
   <div class="rightbox box">
-    <h2><a href="{:U('index/index')}">返回到全部博文</a></h2>
-    <h3 class="title">{$article.title}</h3>
-	<p class="time">发表时间：{$article.time|date="Y-m-d H:i",###}</p>
-    <div class="article" >{$article.content}</div>
+    <h2>相册</h2>
+    <div class="photobox">
+	     <center style="font-size:14px;">点击图片可放大</center>
+          <ul>
+		  <volist name="list" id="p">
+		     <li><img src="__PUBLIC__/Uploads/{$p.name}"><div class="photo-time" >{$p.time|date="Y-m-d i:s",###}</div></li>
+          </volist>
+		  </ul>
+         <!--点击图片放大-->
+		  <div id="showphoto" class="showphoto" style="display:none;">
+            <div id="photo" style=""><img  style="height:600px;"/></div>
+          </div>
+		<!---end---->
+		</div>
+		<div class="snPages">{$page}</div>
   </div>
   <div class="blank"></div>
   <div class="Copyright">

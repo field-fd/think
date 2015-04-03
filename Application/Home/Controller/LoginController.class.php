@@ -19,9 +19,6 @@ class LoginController extends Controller{
 	session('uid',$user['id']);
 	session('username',$username);
 	session('password',$password);
-	// $User = M('article');
-    // $list = $User->select();
-     //$this->assign('list',$list);	 
       $this->redirect('Login/admin');
 	}
 	
@@ -101,6 +98,58 @@ class LoginController extends Controller{
 	   }else{
 		   $this->error('删除失败');			
 	     }	
+	}
+	public function photo(){
+		if (session('username')=="")
+	    $this->redirect('Login/login');
+	    import('ORG.Util.Page');
+	    $count = M('photo')->count();
+	    $page = new \Think\Page($count,10);	
+	    $limit = $page->firstRow.','.$page->listRows;
+	    $list = M('photo')->order('time DESC')->limit($limit)->select();
+	    $this->photo = $list;
+	    $this->page = $page->show();
+	    $this->display();
+	}
+	public function addphoto(){  
+        $upload = new \Think\Upload();// 实例化上传类
+        $upload->maxSize   =     5145728 ;// 设置附件上传大小
+        $upload->exts      =     array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+        $upload->rootPath  =     './Public/Uploads/'; // 设置附件上传根目录
+        $info   =   $upload->uploadOne($_FILES['photo']);
+        if(!$info) {// 上传错误提示错误信息
+        $this->error($upload->getError());
+        }else{
+            // 保存名字
+			$data=array(
+	        'name' => $info['savepath'].$info['savename'],
+	        'time' => time()   
+	   );
+          $flag=M('photo')->data($data)->add();
+	  if ($flag)
+	   {
+	         $this->redirect('Login/photo');
+	   }else{
+		   $this->error('上传失败');
+	   }
+	 }
+	}
+	public function deletephoto(){
+		if (session('username')=="")
+	   $this->redirect('Login/login');
+	   $id = $_GET['id'];
+	   $file=M('photo')->where(array('id'=>$id))->find();
+	   $fi='./Public/Uploads/';
+	   $filename=$file['name'];
+	   unlink($fi.$filename);
+       $drop=M('photo')->where(array('id'=>$id))->delete();
+       if ($drop)
+	   {    
+		  	  $this->redirect('Login/photo');
+	   }else{
+		   $this->error('删除失败');			
+	     }	
+		
 	}
 }
 ?>

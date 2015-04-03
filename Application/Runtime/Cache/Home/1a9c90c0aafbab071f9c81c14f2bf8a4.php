@@ -1,14 +1,14 @@
-<?php if (!defined('THINK_PATH')) exit();?>﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if (!defined('THINK_PATH')) exit();?>﻿ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>后台管理</title>
 <link rel="stylesheet" type="text/css" href="/think/Public/css/admin.css" />
-<script src="scripts/jquery-1.6.2.min.js"></script>
+<script src="/think/Public/js/jquery-1.6.2.min.js"></script>
 <script>
          function myClick(url) {
              if (confirm("你确定要删除吗？")) {
-			  location.href=url;
+			 location.href=url;
              }
              else {
                  return false;
@@ -22,23 +22,25 @@
                  return false;
              }
          }
-
-		</script><!--JS换肤特效  FD(change)-->
+      
+		</script>
+		<script type="text/javascript">
+$(document).ready(function() {
+ $("div li:has(img)").click(function() {
+  $("#showphoto").fadeIn(300);
+   var photo_url = $(this).find("img").attr("src");
+   $("#photo").find("img").attr("src",photo_url);
+  $("#photo").click( function(){
+  $("#showphoto").fadeOut(300);
+ });
+ });
+});
+</script>
 		<style>
-body {
-	background-image:url(/think/Public/images/gb5.jpg);
-}
-.head {
-	background-image:url(/think/Public/images/topbar.png);
-}
-.module-body img {
-	height: 120px;
-	margin-left: 4px;
-}
-.content-body{
- height:480px;
-}
-<!--对教师照片定义大小 2014-12-08改-->
+body {background-image:url(/think/Public/images/gb5.jpg);}
+.head {background-image:url(/think/Public/images/topbar.png);}
+.module-body img {height: 120px;margin-left: 4px;}
+.content-body{ height:535px;}
 </style>
 </head>
 <body>
@@ -68,16 +70,23 @@ body {
 <div class="mainnn">
 <div class="main"> 
   <div class="content" style="float:right;border:1px solid #ccc;background: white;"><!--xinjia beijingyanse-->
-    <div class="content-head" style="height: 25px;background-image:url(/think/Public/images/modelhead.png);"><span class="addblog">全部博文</span></div>
+    <div class="content-head" style="height: 25px;background-image:url(/think/Public/images/modelhead.png);"><span class="addblog">上传照片</span></div>
     <div class="content-body">
-     
-      <div class="content11" style="background: white;padding-top:20px;">
-        <?php if(is_array($list)): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div class="reply">
-		<span class="min-left"><?php echo ($vo["title"]); ?> </span>
-		<span class="reply-time">
-		<span><?php echo (date("Y-m-d i:s",$vo["time"])); ?></span>&nbsp&nbsp&nbsp&nbsp<a   href="javascript:myClick('/think/index.php/Home/Login/delete/id/<?php echo ($vo["id"]); ?>')">&nbsp&nbsp删除</a> 
-		</span>
-		</div><?php endforeach; endif; else: echo "" ;endif; ?>
+     <div class="content11" style="background: white;padding-top:20px;">
+      <form class="add-photo" action="<?php echo U('Login/addphoto');?>" method="post" enctype="multipart/form-data">
+      <input type="file" name="photo" />
+      <input type="submit" value="提交" >
+      </form>
+        <div class="photo">
+          <ul>
+		  <?php if(is_array($photo)): $i = 0; $__LIST__ = $photo;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$p): $mod = ($i % 2 );++$i;?><li><img src="/think/Public/Uploads/<?php echo ($p["name"]); ?>"><a href="javascript:myClick('/think/index.php/Home/Login/deletephoto/id/<?php echo ($p["id"]); ?>')">删除</a><span class="photo-time" ><?php echo (date("Y-m-d i:s",$p["time"])); ?></span></li><?php endforeach; endif; else: echo "" ;endif; ?>
+		  </ul>
+		  <!--点击图片放大-->
+		  <div id="showphoto" class="showphoto" style="display:none;">
+            <div id="photo" style=""><img  style="height:600px;"/></div>
+        </div>
+		<!---end---->
+		</div>
 		<div class="snPages"><?php echo ($page); ?></div>
       </div>
 

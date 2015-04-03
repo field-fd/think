@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <title>方东个人博客</title>
-<meta name="keywords" content="古典网站模板,个人网站模板,个人博客模板,博客模板,css3,html5,网站模板" />
-<meta name="description" content="这是一个古典风格的css3 html5 网站" />
+<meta name="keywords" content="个人博客" />
+<meta name="description" content="这是方东个人博客网站" />
 <link href="__PUBLIC__/css/styles.css" rel="stylesheet">
     <link href="__PUBLIC__/editor/themes/default/css/umeditor.css" type="text/css" rel="stylesheet">
     <script type="text/javascript" src="__PUBLIC__/editor/third-party/jquery.min.js"></script>
@@ -28,8 +28,9 @@
     </div>
 	<div class="nav">
       <ul>
-        <li><a href="{:U('index/index')}">全部博文</a></li>
-        <li><a href="{:U('index/note')}">留言板</a></li>
+        <li><a href="{:U('Index/index')}">全部博文</a></li>
+        <li><a href="{:U('Index/note')}">留言板</a></li>
+		<li><a href="{:U('Index/photo')}">相册</a></li>
       </ul>
 	</div>
     <object id="swftitlebar" data="__PUBLIC__/images/79514.swf" width="100%" height="220" type="application/x-shockwave-flash">
@@ -67,7 +68,7 @@
      </form>
 	 <volist name="list" id="vo">
 	 <div class="notebox">
-	    <div class="noteuser"><span class="notename"><script type="text/javascript">if("{$vo.name}"=="")document.write("匿名用户");else document.write("{$vo.name}");</script>:</span><p class="notetime">{$vo.time|date="Y-m-d i:s",###}</p></div>
+	    <div class="noteuser"><span class="notename">{$vo.name}:</span><p class="notetime">{$vo.time|date="Y-m-d H:i",###}</p></div>
 		<div class="notecontent">{$vo.content}</div>
 	 </div>
 	 </volist>

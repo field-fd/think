@@ -6,12 +6,6 @@
 <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/admin.css" />
 <script src="scripts/jquery-1.6.2.min.js"></script>
 <script>
-			$(document).ready(function(){
-				$("#clickMe").click(function() {
-					$("img").fadeIn(1000);
-					$("#picframe").slideToggle("slow");
-				});
-			});
          function myClick(url) {
              if (confirm("你确定要删除吗？")) {
 			  location.href=url;
@@ -50,8 +44,7 @@ color: #26709A;font-size: 15px;
 <body>
 <div class="head">
   <ul>
-    <li><a href="#" id="clickMe">换肤</a></li>
-    <li><a  class="add" href="javascript:logout('__URL__/logout')">退出</a></li>
+    <li><a  class="add" href="javascript:logout('__URL__/logout')">退出登陆</a></li>
     <li><a href="{:U('index/index')}"  target="_blank">主页</a></li>
   </ul>
 </div>
@@ -66,6 +59,7 @@ color: #26709A;font-size: 15px;
        <li><a href="{:U('Login/admin')}">全部博文</a></li>
 	   <li><a  href="__URL__/addarticle">添加文章</a></li>
 	   <li><a  href="__URL__/note">查看留言</a></li>
+	    <li><a  href="__URL__/photo">查看相册</a></li>
       </ul>
   </div>
 </div>
@@ -80,9 +74,9 @@ color: #26709A;font-size: 15px;
       <div class="content11" style="background: white;padding-top:20px;">
         <volist name="list" id="vo">
         <div class="reply">
-		<span class="min-left"><span class="name"><script type="text/javascript">if("{$vo.name}"=="")document.write("匿名用户");else document.write("{$vo.name}");</script></span>:{$vo.content}</span>
+		<span class="min-left"><span class="name">{$vo.name}</span>:{$vo.content}</span>
 		<span class="reply-time">
-		<span>{$vo.time|date="Y-m-d i:s",###}</span>&nbsp&nbsp&nbsp&nbsp<a   href="javascript:myClick('__URL__/drop/id/{$vo.id}')">&nbsp&nbsp删除</a> 
+		<span>{$vo.time|date="Y-m-d H:i",###}</span>&nbsp&nbsp&nbsp&nbsp<a   href="javascript:myClick('__URL__/drop/id/{$vo.id}')">&nbsp&nbsp删除</a> 
 		</span>
 		</div>
 		</volist>

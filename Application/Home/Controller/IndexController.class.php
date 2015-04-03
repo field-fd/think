@@ -31,8 +31,13 @@ class IndexController extends Controller {
 		
 	}
       public function addnote(){   
-	   $data=array(
-	   'name' => I('name'),
+	  if (I('name')==""){
+		  $name="匿名用户";
+	  }else{
+		  $name=I('name');
+	  }	  
+	  $data=array(
+	   'name' => $name,
 	   'content' => I('myEditor','',htmlspecialchars_decode),
 	   'time' => time()   
 	   );
@@ -46,4 +51,21 @@ class IndexController extends Controller {
 	   }
    }
    
- }
+     public function photo(){
+	  import('ORG.Util.Page');
+	  $count = M('photo')->count();
+	  $page = new \Think\Page($count,8);	
+	  $limit = $page->firstRow.','.$page->listRows;
+	  $list = M('photo')->order('time DESC')->limit($limit)->select();
+	  $this->list = $list;
+	  $this->page = $page->show();
+	  $this->display();
+		 
+		 
+	 }
+
+
+
+
+
+	 }
